@@ -38,22 +38,22 @@ pip install --upgrade setuptools
 
     1.1 Creación de Topicos Pub/Sub para crear los trigger de las funciones de cifrado y descifrado.
     ```bash
-    gcloud pubsub topics create projects/bdb-gcp-st-transit-multi-cloud/topics/bdb-gcp-st-tmc-trigger-to-encrypt
+    gcloud pubsub topics create projects/gcp-st-transit-multi-cloud/topics/gcp-st-tmc-trigger-to-encrypt
 
-    gcloud pubsub topics create projects/bdb-gcp-st-transit-multi-cloud/topics/bdb-gcp-st-tmc-trigger-to-decrypt
+    gcloud pubsub topics create projects/gcp-st-transit-multi-cloud/topics/gcp-st-tmc-trigger-to-decrypt
     ```
 
     1.2 Crear la notificación asociada al topico del Pub/Sub creado en el paso anterior.
     ```bash
-    gsutil notification create -f json -t projects/bdb-gcp-st-transit-multi-cloud/topics/bdb-gcp-st-tmc-trigger-to-encrypt -p export-lab-digital -e OBJECT_FINALIZE -e OBJECT_METADATA_UPDATE gs://export-zone-cds
+    gsutil notification create -f json -t projects/gcp-st-transit-multi-cloud/topics/gcp-st-tmc-trigger-to-encrypt -p export-lab-digital -e OBJECT_FINALIZE -e OBJECT_METADATA_UPDATE gs://export-zone-cds
 
-    gsutil notification create -f json -t projects/bdb-gcp-st-transit-multi-cloud/topics/bdb-gcp-st-tmc-trigger-to-decrypt -p import-lab-digital -e OBJECT_FINALIZE -e OBJECT_METADATA_UPDATE gs://bdb-gcp-aws-import-zone
+    gsutil notification create -f json -t projects/gcp-st-transit-multi-cloud/topics/gcp-st-tmc-trigger-to-decrypt -p import-lab-digital -e OBJECT_FINALIZE -e OBJECT_METADATA_UPDATE gs://gcp-aws-import-zone
     ```
 
 2. Crear los secretos subiendo las llaves publica y privada de pgp (Area llaves y criptogramas).
 ```txt
-bdb-gcp-st-tmc-gpg-pb
-bdb-gcp-st-tmc-gpg-pv
+gcp-st-tmc-gpg-pb
+gcp-st-tmc-gpg-pv
 ```
 
 3. Creación de la service_accounts.
@@ -95,34 +95,34 @@ Visualizador del administrador de secretos
 
     ```bash
     #email de la key pgp a usar
-    export NAME_EMAIL= 'agalin1@bancodebogota.com.co'
+    export NAME_EMAIL= 'agalin1@gmail.com.co'
     
     #path de la ubicación del json service_accounts
-    export GOOGLE_APPLICATION_CREDENTIALS='C:\Users\crist\OneDrive\Escritorio\Proyectos\BdB\service_accounts\bdb-gcp-st-transit-multi-cloud-a2191790c572.json'--linux
+    export GOOGLE_APPLICATION_CREDENTIALS='C:\Users\crist\OneDrive\Escritorio\Proyectos\BdB\service_accounts\gcp-st-transit-multi-cloud-a2191790c572.json'--linux
 
     #Id de los proyectos gcp
-    export PROJECT_ID_A='bdb-gcp-st-transit-multi-cloud'
-    export PROJECT_ID_B='bdb-gcp-de-cds'
+    export PROJECT_ID_A='gcp-st-transit-multi-cloud'
+    export PROJECT_ID_B='gcp-de-cds'
 
     #nombre del bucket cloud function cifrar
     export BUCKET_TO_ENCRYPT_IN='export-zone-cds'
-    export BUCKET_ENCRYPTED_OUT='bdb-gcp-aws-export-zone'
+    export BUCKET_ENCRYPTED_OUT='gcp-aws-export-zone'
     export BUCKET_TO_ENCRYPT_OLD='export-zone-cds-backup'
 
     #nombre del bucket cloud function decifrar
-    export BUCKET_TO_DECRYPT_IN='bdb-gcp-aws-import-zone'
+    export BUCKET_TO_DECRYPT_IN='gcp-aws-import-zone'
     export BUCKET_DECRYPTED_OUT='import-zone-cds'
-    export BUCKET_TO_DECRYPT_OLD='bdb-gcp-aws-import-zone-backup'
+    export BUCKET_TO_DECRYPT_OLD='gcp-aws-import-zone-backup'
 
     #Id del proyecto donde esta el SM
     export ID_PROJECT_SECRET='553319150162'
 
     #Id del secreto publico
-    export SECRET_ID_PB= 'bdb-gcp-st-tmc-gpg-pb'
+    export SECRET_ID_PB= 'gcp-st-tmc-gpg-pb'
     #Id del secreto privado
-    export SECRET_ID_PV='bdb-gcp-st-tmc-gpg-pv'
+    export SECRET_ID_PV='gcp-st-tmc-gpg-pv'
     #password de la key pgp privada
-    export SECRET_ID_PSW='bdb-gcp-st-tmc-gpg-psw'
+    export SECRET_ID_PSW='gcp-st-tmc-gpg-psw'
 
     #Usuario
     export CLIENT='import-lab-digital' #'import-adl'
