@@ -1,16 +1,16 @@
-# DOCUMENTACION PROYECTO
+# DOCUMENTACION PROYECTO :dart::octocat:
 
 Proyecto desarrollado con el fin de modernizar el proceso de cifrado y descifrado de archivos haciendo uso de la librería pgp free llamada gnupg o gpg.
 
-## 1. Nombre
+## 1. Nombre :computer:
 
 Cifrado y Decifrado de Archivos con OpenPGP
 
-## 2. Descripción
+## 2. Descripción 	:bookmark_tabs:
 
 Este proyecto tiene como objetivo reemplazar la arquitectura actual de cifrado mediante cryptovault, modernizando el cifrado y la transferencia de información mediante el uso de librerias pgp, estandarizando el proceso para el uso en multicloud.
 
-## 3. Instalación
+## 3. Instalación :jigsaw:
 
 Usamos el package manager [pip](https://pip.pypa.io/en/stable/) para instalar la libreria pgp.
 
@@ -32,7 +32,7 @@ Actualizar las herramientas de python instaladas.
 pip install --upgrade setuptools
 ```
 
-## 4. Despliegue Cloud Functions:
+## 4. Despliegue Cloud Functions:  :writing_hand:
 
 1. Creación del trigger "activador".
 
@@ -71,7 +71,7 @@ Usuario con acceso a secretos de Secret Manager
 Visualizador del administrador de secretos
 ```
 
-4. Creación de las Cloud Functions:
+4. Creación de las Cloud Functions: :electron:
 
     **Nota:** El cifrado tendra un topico de Pub/Sub activador y una cloud functions y el decifrado tendra otro topico de Pub/Sub activador y una cloud functions respectivamente.
 
@@ -143,7 +143,7 @@ Visualizador del administrador de secretos
     ```
 
 
-## 5. Lógica del Desarrollo:
+## 5. Lógica del Desarrollo: :electron:
 
 *./app/main_onprimese_encrypt.py*
 
@@ -165,7 +165,7 @@ Una vez se listan los archivos se invoca la función de encripción la cual toma
 **Nota:** Este scrypt en el despliegue de la cloud functions debe remplazarce por *main.py* y con punto de entrada *main*.
 
 
-## 5. Roadmap - Ideas
+## 6. Roadmap - Ideas :roller_coaster:
 * [x] Realizar un desarrollo con programación orientada a objetos.
 
 * [x] Cambiar las variables quemadas en codigo por variables de entorno.
@@ -178,10 +178,10 @@ Una vez se listan los archivos se invoca la función de encripción la cual toma
 
 * [ ] Generar integración para pruebas unitarias.
 
-## 6. Autor
+## 7. Autor :technologist:
 Cristian Beltrán -- Data Engineer
 
-## 7. Referencias
+## 8. Referencias :books:
 > SaltyCrane Blog (2012). [saltycrane.com](https://www.saltycrane.com/blog/2011/10/python-gnupg-gpg-example/#:~:text=python%2Dgnupg%20is%20a%20Python,see%20the%20python%2Dgnupg%20documentation)
 
 > Python Hosted (2017). [pythonhosted.org](https://pythonhosted.org/python-gnupg/#encryption)
@@ -190,7 +190,7 @@ Cristian Beltrán -- Data Engineer
 
 > Read the Docs (2022). [gnupg.readthedocs.io](https://gnupg.readthedocs.io/en/latest/)
 
-## 8. Estado del Proyecto - Fases Devops
+## 9. Estado del Proyecto - Fases Devops :construction:
 * [x] Fase de Planeación (Entendimiento del brief. Roadmap)
 * [x] Fase de Construcción (Generación de Diseño y Código del desarrollo)
 * [x] Fase de Integración Continua (Testeo, calidad con sonar. Pruebas unitarias)
